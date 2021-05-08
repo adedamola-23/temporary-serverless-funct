@@ -4,8 +4,8 @@ const result = document.querySelector('.result')
 
 const fetchProducts = async () => {
  try {
-    // const {data} = await axios.get('/api/3-airtable')
-     const {data} = await axios.get('https://temporary-serverless-funct.netlify.app/api/3-complete')
+    // const {data} = await axios.get('/api/3-airtable') 
+     const {data} = await axios.get('/api/3-complete')
     const products = data.map((product)=>{
     const {id,url,name,price} = product
     return `<a href="product.html?id=${id}" class="product">

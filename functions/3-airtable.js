@@ -10,14 +10,14 @@ exports.handler = async (event,context,cb) =>{
        const {records} = await airtable.list()
        const products = records.map((product)=>{
          const {id} = product;
-          const {name,image,price} = product.fields
+          const {name,image,price,desc,reviews,stock,company,category,stars,featured,delivery,colors} = product.fields
          const url = image[0].url     
-         return {id,name,url,price}
+         return {id,name,url,price,desc,reviews,stock,company,category,stars,featured,delivery,colors}
        });
          return{
-               headers: {
-     'Access-Control-Allow-Origin': '*',
-   },
+           headers: {
+             'Access-Control-Allow-Origin': '*',
+           },
    statusCode: 200,
    body: JSON.stringify(products),
  
