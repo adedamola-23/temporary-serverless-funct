@@ -48,8 +48,7 @@ exports.handler = async (event,context) =>{
  }
     } catch (error) {
         return{
-   statusCode: 500,
-   body: 'server'
+  
  
  }
     }
