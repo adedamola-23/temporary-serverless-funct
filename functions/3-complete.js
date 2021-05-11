@@ -10,8 +10,8 @@ exports.handler = async (event,context) =>{
   const {id} = event.queryStringParameters
   if (id) {
     try {
-      const product = await airtable.retrieve(id)
-      if (product.error) {
+      const products = await airtable.retrieve(id)
+      if (products.error) {
                return{
    statusCode: 404,
    body: `no product with id: ${id}`,
@@ -22,7 +22,7 @@ exports.handler = async (event,context) =>{
      'Access-Control-Allow-Origin': '*',
    },
    statusCode: 200,
-   body: JSON.stringify(product),
+   body: JSON.stringify(products),
  }
     } catch (error) {
       return {
@@ -48,7 +48,8 @@ exports.handler = async (event,context) =>{
  }
     } catch (error) {
         return{
-  
+   statusCode: 500,
+   body: 'server'
  
  }
     }
